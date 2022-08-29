@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap');
+.navbar{
+    background-color: #FAFEFE !important;
+    padding: 0;
+}
+#nav-btn{
+    border: 1px solid #3fbbc0;
+    color: #3fbbc0;
+}
+#nav-btn:hover{
+    background-color: #3fbbc0;
+    color: #fff;
+    font-weight: bold;
+    transition: all 0.2s ease-out;
+}
+.navbar-nav{
+    font-family: 'Lora', serif;
+}
+.nav-link{
+    color: #3fbbc0 !important;
+}
+.nav-link:hover{
+    color: #3fbbc0 !important;
+    font-weight: bold;
+}
+.header-text{
+    font-family: 'Playfair Display', serif;
+    font-weight: bolder;
+    color: #3fbbc0;
+}
+.form-labels{
+    font-family: 'Lora', sans-serif;
+    color: #6A4162;
+}
+form{
+    border: 1px solid #3fbbc0;
+    padding: 30px;
+    background-color: white;
+    margin-bottom: 30px;
+    box-shadow: 1px 1px 1px 2px #3fbbc0;
+    border-radius: 10px;
+}
+.form-control{
+    box-shadow: 1px 1px 1px 2px #bebcbc;
+}
+.upload-box{
+    padding: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid white;
+    width: 80%;
+    margin-left: 6vw;
+    background-color: #FAFEFE;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.upload-box h4{
+    font-family: 'Playfair Display', 'serif';
+    color: #3fbbc0;
+    font-weight: bold;
+}
+.upload-box p{
+    font-family: 'Lora', 'serif';
+    color: #3fbbc0;
+}
+.upload-browse{
+    background-color: #fff;
+    padding: 10px 0;
+    border-radius: 10px;
+    border: 1px solid white;
+    width: 80%;
+    margin-left: 50px;
+}
+.btn1{
+    margin-top: 40px;
+    font-family: 'lora', serif;
+    background: linear-gradient(180deg, #3fbbc0 0%, #3fbbc0 100%);
+    color: #fff; 
+    width: 50%;  
+    border: none; 
+    border-radius: 5px; 
+    filter: drop-shadow(0px 2px 2px rgb(106, 196, 212));
+    outline: none;
+    padding: 10px;
+}
+
+.btn1:hover{
+    border: 1px solid #3fbbc0;
+    color: #3fbbc0 !important;
+    background: #FAFEFE;
+}
+.btn1:focus{
+    outline: none;
+    box-shadow: none;
+}

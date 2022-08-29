@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis Result</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='home.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="static/img/favicon.png" style="width: fit-content;">
+    <style>
+    #test-btn{
+        margin-top: 40px;
+        font-family: 'lora', serif;
+        width: 50%;  
+        border-radius: 5px; 
+        filter: drop-shadow(0px 2px 2px rgb(63, 187, 192));
+        outline: none;
+        padding: 10px;
+        border: 1px solid #3fbbc0;
+        color: #3fbbc0 !important;
+        background: #FAFEFE;
+    }
+    #test-btn:hover{
+        background: linear-gradient(180deg, #3fbbc0 0%, #3fbbc0 9DB6 100%);
+        color: #fff !important; 
+        border: none; 
+    }
+    .banner-paragraph{
+    font-family: 'Lora', serif;
+    color: #3fbbc0;}
+    </style>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img id="logo" src="static/img/logo.png" width="60%">
+            </a>
+            <button style="padding-right: 3vh; outline: none; border: none;" class="navbar-toggler custom-toggler"
+                type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i Style="color:#3fbbc0;" class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li>
+                        <h5 style="color: #3fbbc0; font-weight: bold; font-family: 'Playfair Display', serif;"
+                            class="mr-5 mt-2">{{current_user.first_name}}</h5>
+                    </li>
+                    <li>
+                        <a class="nav-link mr-3" href="/history">View History</a>
+                    </li>
+                    <li>
+                        <a class="nav-link mr-3" href="/homepage">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/login"><button id="nav-btn" class="btn" type="submit">Logout</button></a>
+                    </li>
+            </div>
+        </div>
+    </nav>
+    <section class="analyse">
+        <div class="row">
+            <!--<div class="col-12 col-xl-6 img-display">
+                <div class="d-xl-block d-none">
+                    <img src="#" width="100%" height="100%" class="img-fluid display-pic">
+                </div>
+            </div>
+            <div class="col-12 col-xl-12  text-center analyse-body container">-->
+
+                    <!--<form action="/prediction"method="post">
+                        <input type="text" name="result" placeholder="result" required="required" />
+                        <button type="submit" class="btn btn-primary btn-block btn-large">getprediction</button>
+                    </form>-->
+                    <br><br>
+                        <div class="col-md-112 col-12">
+                            <div class="card mt-12" style="width: 100%;">
+                                <!--<img src="#" class="card-img-top" alt="...">-->
+                                <div class="card-body p-12">
+                                    <h4 class="card-title">{{ output }}</h4>
+                                    <p class="card-text">Do you want to diagnose again?</p>
+                                    <a href="/prediction"><button class=" btn1">Diagnose</button></a>
+                                </div>
+                            </div>
+                        </div>
+                 </div>
+                       
+            </div>
+        </div>
+
+    </section>
+    <script src="../js/homepage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

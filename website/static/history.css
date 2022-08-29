@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap');
+.navbar{
+    background-color: #FAFEFE !important;
+    padding: 0;
+}
+.header-text{
+    font-family: 'Playfair Display', serif;
+    font-weight: bolder;
+    color: #3fbbc0;
+}
+#nav-user{
+    color: #3fbbc0 !important;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+}
+#nav-btn:hover{
+    background-color: #3fbbc0;
+    color: #fff;
+    font-weight: bold;
+    transition: all 0.2s ease-out;
+}

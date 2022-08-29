@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosis</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='diagnose.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="static/img/favicon.png" style="width: fit-content;">
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/landingpage">
+                <img id="logo" src="static/img/logo.png" width="60%">
+            </a>
+            <button style="padding-right: 3vh; outline: none; border: none;" class="navbar-toggler custom-toggler"
+                type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i Style="color:#3fbbc0;" class="fa fa-bars"></i>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li>
+                        <h5 style="color: #3fbbc0; font-weight: bold; font-family: 'Playfair Display', serif;" class="mr-5 mt-2">
+                            {{current_user.first_name}}</h5>
+                    </li>
+                    <!--<li>
+                        <a class="nav-link mr-3" href="/instructions">Instructions</a>
+                    </li>-->
+                    <li>
+                        <a class="nav-link mr-3" href="/">Home</a>
+                    </li>
+                    <li>
+                        <a class="nav-link mr-3" href="/history">View History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/login"><button id="nav-btn" class="btn" type="submit">Logout</button></a>
+                    </li>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="text-center">
+            <h1 class="header-text mt-4">Perform Diagnosis</h1>
+            <p class="text-muted mb-5">Diagnose patients with breast cancer</p>
+        </div>
+        <form method="POST" enctype="multipart/form-data" action="/result">
+            <div class="row mt-10">
+                <div class="col-md-12 col-12">
+                    <!--<label for="full_name" class="form-labels mb-3 mt-2">Patient's Name</label>
+                    <input name="full_name" required type="text" pattern="[a-zA-Z'-'\s]*" title="Name must contain characters "
+                        class="form-control input-lg mb-5" style="width: 100%;" placeholder="Enter Patient full name">
+                    Making the fields required and setting a format for data collection
+                    <label for class="form-labels mb-3">Patient's ID</label>
+                    <input name="id" required type="text" pattern="^[0-9]{2}[a-zA-Z]{2}[0-9]{6}$" title="Enter correct format: id must consist of two numbers, two letters and six numbers in that exact order"
+                        placeholder="Enter Patient ID" class="form-control mb-5" style="width: 100%;">
+                </div>-->
+                <label for class="form-labels mb-3">Patient ID</label>
+                        <input name="p_id" required type="text"  title="Enter the Patient ID"
+                            placeholder="Enter the Patient ID" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3">Radius Mean</label>
+                        <input name="radius_mean" required type="text"  title="Enter the radius mean"
+                            placeholder="Enter the radius mean" class="form-control mb-5" style="width: 100%;">
+                
+                <label for class="form-labels mb-3 ">Texture Mean</label>
+                    <input name="texture_mean" required type="text"  title="Enter the texture mean"
+                        placeholder="Enter the texture mean" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Area Mean</label>
+                    <input name="area_mean" required type="text"  title="Enter the area mean"
+                        placeholder="Enter the area mean" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Perimeter Mean</label>
+                    <input name="perimeter_mean" required type="text"  title="Enter the perimeter mean"
+                        placeholder="Enter the perimeter mean" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Smoothness Mean</label>
+                    <input name="smoothness_mean" required type="text"  title="Enter the smoothness mean"
+                        placeholder="Enter the smoothness mean" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Compactness Mean</label>
+                    <input name="compactness_mean" required type="text"  title="Enter the compactness mean"
+                        placeholder="Enter the compactness mean" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Concativity Mean</label>
+                    <input name="concativity_mean" required type="text"  title="Enter the concativity mean"
+                        placeholder="Enter the concativity mean" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Concave Points Mean</label>
+                    <input name="concave_points_mean" required type="text"  title="Enter the concave points mean"
+                            placeholder="Enter the concave points mean" class="form-control mb-5" style="width: 100%;">
+                            
+                <label for class="form-labels mb-3 ">Symmetry Mean</label>
+                    <input name="symmetry_mean" required type="text"  title="Enter the Symmetry Mean"
+                        placeholder="Enter the Symmetry Mean" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Fractal Dimension Mean</label>
+                    <input name="fractal_dimension_mean" required type="text"  title="Enter the Fractal Dimension Mean"
+                        placeholder="Enter the Fractal Dimension Mean" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Radius se</label>
+                    <input name="radius_se" required type="text"  title="Enter the Radius se"
+                        placeholder="Enter the Radius se" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Texture se</label>
+                    <input name="texture_se" required type="text"  title="Enter the Texture se"
+                        placeholder="Enter the Texture se" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Perimeter se</label>
+                    <input name="perimeter_se" required type="text"  title="Enter the Perimeter se"
+                        placeholder="Enter the Perimeter se" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Area se</label>
+                    <input name="area_se" required type="text"  title="Enter the Area se"
+                        placeholder="Enter the Area se" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Smoothness se</label>
+                    <input name="smoothness_se" required type="text"  title="Enter the Smoothness se"
+                        placeholder="Enter the Smoothness se" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Compactness se</label>
+                    <input name="compactness_se" required type="text"  title="Enter the Compactness se"
+                        placeholder="Enter the Compactness se" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Concavity se</label>
+                    <input name="concavity_se" required type="text"  title="Enter the Concavity se"
+                        placeholder="Enter the Concavity se" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Concave Points se</label>
+                    <input name="concave_points_se" required type="text"  title="Enter the Concave Points se"
+                        placeholder="Enter the Concave Points se" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Symmetry se</label>
+                    <input name="symmetry_se" required type="text"  title="Enter the Symmetry se"
+                        placeholder="Enter the Symmetry se" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Fractal Dimension se</label>
+                    <input name="fractal_dimension_se" required type="text"  title="Enter the Fractal Dimension se"
+                        placeholder="Enter the Fractal Dimension se" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Radius Worst</label>
+                    <input name="radius_worst" required type="text"  title="Enter the Radius Worst"
+                        placeholder="Enter the Radius Worst" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Texture Worst</label>
+                    <input name="texture_worst" required type="text"  title="Enter the Texture Worst"
+                        placeholder="Enter the Texture Worst" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Perimeter Worst</label>
+                    <input name="perimeter_worst" required type="text"  title="Enter the Perimeter Worst"
+                        placeholder="Enter the Perimeter Worst" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Area Worst</label>
+                    <input name="area_worst" required type="text"  title="Enter the Area Worst"
+                        placeholder="Enter the Area Worst" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Smoothness Worst</label>
+                    <input name="smoothness_worst" required type="text"  title="Enter the Smoothness Worst"
+                        placeholder="Enter the Smoothness Worst" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Compactness Worst</label>
+                    <input name="compactness_worst" required type="text"  title="Enter the Compactness Worst"
+                        placeholder="Enter the Compactness Worst" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Concavity Worst</label>
+                    <input name="concavity_worst" required type="text"  title="Enter the Concavity Worst"
+                        placeholder="Enter the Concavity Worst" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 "> Concave Points Worst</label>
+                    <input name="concave_points_worst" required type="text"  title="Enter the Concave Points Worst"
+                        placeholder="Enter the Concave Points Worst" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Symmetry Worst</label>
+                    <input name="symmetry_worst" required type="text"  title="Enter the Symmetry Worst"
+                        placeholder="Enter the Symmetry Worst" class="form-control mb-5" style="width: 100%;">
+
+                <label for class="form-labels mb-3 ">Fractal Dimension Worst</label>
+                    <input name="fractal_dimension_worst" required type="text"  title="Enter the Fractal Dimension Worst"
+                        placeholder="Enter the Fractal Dimension Worst" class="form-control mb-5" style="width: 100%;">
+                </div>
+            <!--<div class="col-md-6 col-12">
+                    <div class="upload-box text-center">
+                        <h4 class="mb-3">Upload your images</h4>
+                        <p> PNG or JPEG files allowed</p>   
+                        <div class="upload-browse">
+                            <div class="image-upload">
+                                <label for="file" style="cursor: pointer;">
+                                    <p><img id="output" src="#" width="100px" class="mb-5 mt-3" />
+                                    </p>                    
+                                    <p>Take a picture or browse to upload</p>
+                                </label>
+                                <input required type="file" accept="image/jpeg, image/png" name="filePath" id="file"
+                                    onchange="loadFile(event)" style="display: none;">
+                            </div>
+                            <script>
+                                var loadFile = function (event) {
+                                    var image = document.getElementById('output');
+                                    image.src = URL.createObjectURL(event.target.files[0]);
+                                };
+                            </script> 
+                        </div>
+                         {% if messages %}
+                        {% for x in messages %}
+                        <h3>{{x}}</h3>
+                        {% endfor %}
+                        {% endif %} 
+                    </div>
+                </div>-->
+            </div>
+            <div class="form-btn mt-4 text-center">
+                <a href="/result"><input type="submit" value="View Result" class="btn1"></a>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

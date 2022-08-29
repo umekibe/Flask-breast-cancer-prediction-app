@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name = "viewport" content="width=device-width, initial-scale = 1"/>
+
+        <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous"
+      />
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous"
+      />
+
+    <title>{% block title %}Home{% endblock %}</title>
+
+    <!-- Favicons -->
+      <link href="static/img/favicon.png" rel="icon">
+      <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Static CSS Files -->
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='fontawesome-free/css/all.min.css') }}">
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='animate.css/animate.min.css') }}">
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='aos/aos.css') }}">
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='bootstrap/css/bootstrap.min.css') }}">
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='bootstrap-icons/bootstrap-icons.css') }}">
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='boxicons/css/boxicons.min.css') }}">
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='glightbox/css/glightbox.min.css') }}">
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='swiper/swiper-bundle.min.css') }}">
+
+    <!-- Template Main CSS File -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    </head>
+
+    <body>
+
+    <!-- ======= Top Bar ======= -->
+     <div id="topbar" class="d-flex align-items-center fixed-top">
+      <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
+       <div class="align-items-center d-none d-md-flex">
+         <i class="bi bi-clock"></i> Breast Cancer Prediction and Diagnosis System
+       </div>
+        <div class="d-flex align-items-center">
+          <i class="bi bi-phone"></i> Take Action Now!
+         </div>
+    </div>
+  </div>
+
+    <!-- ======= Header ======= -->
+      <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+
+      <a href="base.html" class="logo me-auto"><img src="static/img/logo.png" alt=""></a>
+      
+<!--navbar-->
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-item nav-link" id="home" href="/">Home</a></li>
+          <li><a class="nav-item nav-link" id="about" href="/about">About</a></li>
+          <!--<li><a class="nav-item nav-link" id="logout" href="/logout">Logout</a></li>-->
+          <li><a class="nav-item nav-link" id="login" href="/login">Login</a></li>
+        </ul>
+        <!--<i class="bi bi-list mobile-nav-toggle"></i>
+        <ul> 
+          <li><a class="nav-item nav-link" href="/contact">Contact</a></li>
+          </ul>-->
+      </nav>
+      <!-- .navbar -->
+      <a href="/sign-up" id="sign_up"class="appointment-btn nav-link"><span class="d-none d-md-inline">Sign</span> Up</a>
+      
+     
+      {%if messages%}
+      {%for category, message in messages%}
+      {% if category == 'error' %}
+      <div class="alert alert-danger alter-dismissable fade show" role="alert">
+        {{message}}
+        <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% else %}
+      <div class="alert alert-success alter-dismissable fade show" role="alert">
+        {{message}}
+        <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {%endif%}
+      {%endfor%}
+      {%endif%}
+
+    </div>
+  </header>
+ 
+  <br>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/><br/><br/><br/><br/>
+
+
+  {%block content%}
+  <div id="content" class="container">
+    <section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+            <!-- Slide 1 -->
+            <div class="carousel-item active" style="background-image: url(static/img/slide/slide-1.jpg)">
+                <div class="container">
+                    <h2>Welcome to <span>Medicio</span></h2>
+                    <p>A system for diagnosing breast cancer in patients.
+                    </p>
+                    <a href="/sign-up" class="btn-get-started navlink">Get Started</a>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item" style="background-image: url(static/img/slide/slide-2.jpg)">
+                <div class="container">
+                    <h2>MEDICIO</h2>
+                    <p>
+                      A final year project, in Partial Fufillment of the requirements for the award of Bachelors
+                      of Science (B.Sc) Honors degree in Computer Science.
+                    </p>
+                    <a href="/sign-up" class="btn-get-started navlink">Get Started</a>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item" style="background-image: url(static/img/slide/slide-3.jpg)">
+                <div class="container">
+                    <h2>MEDICIO</h2>
+                    <p>Saving lives, Easing lives.</p>
+                    <a href="/sign-up" class="btn-get-started scrollto">Get Started</a>
+                </div>
+            </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+
+    </div>
+  </div>
+</section>
+<!-- End Hero --> 
+
+ <!-- ======= Featured Services Section ======= -->
+ <section id="featured-services" class="featured-services">
+  <div class = "container">
+    <div class="row">
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+        <div class="icon-box">
+          <div class="icon"><i class="fas fa-heartbeat"></i></div>
+          <h4 class="title"><a href="">Mortality</a></h4>
+          <p class="description">Cancer is one of the most prevalent cause of mortality globally, 
+            responsible for almost ten million deaths each year. </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+        <div class="icon-box">
+          <div class="icon"><i class="fas fa-heartbeat"></i></div>
+          <h4 class="title"><a href="">Demography</a></h4>
+          <p class="description">In Nigeria, cancer is responsible for 70,000 deaths annually 
+            (28 414 for male and 41 913 for female).Breast cancer is 
+            Nigeria's most diagnosed cancer  </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+        <div class="icon-box">
+          <div class="icon"><i class="fas fa-heartbeat"></i></div>
+          <h4 class="title"><a href="">Diagnosis</a></h4>
+          <p class="description">Diagnosis of breast cancer can be performed by breast examination, mammograms, breast ultrasound
+             and biopsy which involves removing a sample of breast cells for testing. </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+        <div class="icon-box">
+          <div class="icon"><i class="fas fa-heartbeat"></i></div>
+          <h4 class="title"><a href="">Risk Factors</a></h4>
+          <p class="description">The fundamental factors that determines breast cancer survivability
+             are proper risk assessment, as well as early and accurate diagnosis. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Featured Services Section -->
+
+ <!-- ======= Cta Section ======= -->
+ <section id="cta" class="cta">
+   <div class="container">
+    <div class="text-center">
+      <h3 style="color: white;">Need to diagnose Cancer quickly?</h3>
+      <p>Medicio helps to automate the process of breast cancer diagnosis. Click the link below</p>
+      <a class="cta-btn navlink" href="/sign-up">Register Now</a>
+    </div>
+  </div>
+</section>
+<!-- End Cta Section -->
+<!--contact section-->
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>To contact us for more information concerning our system, please visit our address below or you can Send
+        an email or better still fill out the form below and we'll be reaching out to you!
+      </p>
+    </div>
+  </div>
+
+  <!--<div>
+    <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+  </div>-->
+
+  <div class="container">
+
+    <div class="row mt-5">
+
+      <div class="col-lg-6">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="info-box">
+              <i class="bx bx-map"></i>
+              <h3>Our Address</h3>
+              <p>Covenant University,
+                Ota, Ogun State,
+                Nigeria.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="info-box mt-4">
+              <i class="bx bx-envelope"></i>
+              <h3>Email</h3>
+              <p>ume.kibe@stu.cu.edu.ng<br>umekibe@gmail.com</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="info-box mt-4">
+              <i class="bx bx-phone-call"></i>
+              <h3>Phone Number</h3>
+              <p>+234 908-554-3421<br>+234 802-715-5290</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <div class="row">
+            <div class="col form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="col form-group mt-3">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+          </div>
+          <div class="my-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
+          </div>
+          <div class="text-center"><button type="submit">Send Message</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Contact Section -->
+</div>
+<br><br><br><br><br><br>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>Medicio</h3>
+              <p>
+                Covenant University <br>
+                Ota, Ogun State<br><br>
+                <strong>Phone:</strong> +234 9085543421<br>
+                <strong>Email:</strong> umekibe@gmail.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="https://twitter.com/umekibe" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <!--<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>-->
+                <a href="https://instagram.com/umekibe" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <!-- a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>-->
+                <a href="https://www.linkedin.com/in/kibe-ume-0bb26a199//" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/about">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <!--<div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div>-->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Kibe Inc.</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/medicio-free-bootstrap-theme/ -->
+        Designed by <a href="#">Ume Kibe Comfort</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+{%endblock%}
+
+
+
+
+  <div id="preloader"><a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a></div>
+  
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"
+></script>
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='main.js') }}"
+    ></script>
+
+    <script
+    type="text/javascript"
+    src="{{ url_for('static', filename='purecounter/purecounter.js') }}"
+    ></script>
+
+    <script
+    type="text/javascript"
+    src="{{ url_for('static', filename='aos/aos.js') }}"
+    ></script>
+
+    <script
+    type="text/javascript"
+    src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"
+    ></script>
+
+    <script
+    type="text/javascript"
+    src="{{ url_for('static', filename='glightbox/js/glightbox.min.js') }}"
+    ></script>
+
+    <script
+    type="text/javascript"
+    src="{{ url_for('static', filename='swiper/swiper-bundle.min.js') }}"
+    ></script>
+    
+    </body>
+</html>
